@@ -6,6 +6,10 @@ import logo2 from './assets/logo2.png';
 
 import { Button, Container,Table , Navbar, Nav, Form, FormControl, Modal,Carousel } from 'react-bootstrap';
 
+import OwlCarousel from 'react-owl-carousel2';
+
+import jQuery from "jquery";
+
 import img1 from './assets/img1.jpg';
 import img2 from './assets/img2.jpg';
 import img3 from './assets/img3.jpg';
@@ -21,6 +25,7 @@ import x from './assets/icon/x.svg';
 import React, { Component } from 'react';
 
 
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -28,7 +33,71 @@ class App extends Component {
       open: false
      }
   }
+
+  componentDidMount(){
+
+  }
+
   render() { 
+
+    const options = {
+      items: 2,
+      navElement: "item",
+      dots: true,
+      nav: false,
+      margin: 20,
+      responsive:{
+        0:{
+            items:1,
+            autoWidth:true,
+            loop: true,
+            autoplay: true,
+            autoplayTimeout:3000,
+        },
+        600:{
+            items:2,
+            autoWidth:true,
+            loop: true,
+            autoplay: true,
+            autoplayTimeout:3000,
+            
+        },
+        1000:{
+            items:3,
+        }
+    }
+  };
+
+
+  const options2 = {
+    items: 2,
+    navElement: "item",
+    dots: true,
+    nav: false,
+    margin: 20,
+    responsive:{
+      0:{
+          items:1,
+          autoWidth:true,
+          loop: true,
+          autoplay: true,
+          autoplayTimeout:3000,
+      },
+      600:{
+          items:2,
+          autoWidth:true,
+          loop: true,
+          autoplay: true,
+          autoplayTimeout:3000,
+          
+      },
+      1000:{
+          items:3,
+      }
+  }
+};
+
+  
     return ( 
       <div>
 
@@ -113,10 +182,42 @@ class App extends Component {
          </div>
 
 
+<OwlCarousel ref="car" options={options}  >
+<div>
+<div className="img_c1 bg-white shadow p-3">
+<img src={img1} className="img-fluid mb-1 mr-4" width="" alt="image" />
+<h3 className="color1 m-0">Global Factor<br></br>Investing Study</h3>
+</div>
+</div>
+
+
+<div>
+<div className="img_c2 bg-white shadow p-3">
+<img src={img2} className="img-fluid mb-1 mr-4" width="" alt="image" />
+<h3 className="color2 m-0">2019 <br></br>
+Outlook</h3>
+</div>
+</div>
+
+<div>
+<div className="img_c3 bg-white shadow p-3">
+<img src={img3} className="img-fluid mb-1 mr-4" width="" alt="image" />
+<h3 className="color3 m-0">Capital Market<br></br>
+Assumptions</h3>
+</div>
+</div>
+
+</OwlCarousel>
 
 
 
-        <div className="table-responsive p-4">
+
+
+
+
+
+
+        {/* <div className="table-responsive p-4">
         <div className="acme">
           <div className="row">
               <div className="col">
@@ -144,7 +245,7 @@ class App extends Component {
               </div>
           </div>
         </div>
-        </div>
+        </div> */}
 
 
 
@@ -183,9 +284,80 @@ class App extends Component {
          <h3>Upcoming Events</h3>
          <p>This needs a great tagline, but I’ll fill it in later</p>
 
-         <div className="table-responsive p-4">
-         <div className="upcoming">
 
+
+
+         <OwlCarousel ref="car" options={options}  >
+
+         <div  className="pt-5">
+              <div className="bg1 ">
+                <div className="pl-4">
+                <div className="bg2 text-white box">
+                  <p className="m-0 text-center mt-1">JAN</p>
+                  <h3 className="m-0 text-center">28</h3>
+                </div>
+                </div>
+                  <div className="pt-5 pl-3 pr-3 pb-3">
+                  <h4 className="text-white pt-3">Insight Exchange Network</h4>
+                  <p className="text-white"><small>Join us for this conference showcasing innovation.</small></p>
+                  <Button  variant="outline-light rounded-0 my-3">Get More Insight</Button>
+                  </div>
+                  <div class="text-right bg-white bottom-box p-2">
+                  <h5>Chicago, IL</h5>
+                </div>
+                
+              </div>
+               
+              </div>
+
+
+              <div class="pt-5">
+              <div className="bg1 ">
+                <div className="pl-4">
+                <div className="bg2 text-white box">
+                  <p className="m-0 text-center mt-1">FEB</p>
+                  <h3 className="m-0 text-center">12</h3>
+                </div>
+                </div>
+                  <div className="pt-5 pl-3 pr-3 pb-3">
+                  <h4 className="text-white pt-3">Citywide Buyer’s Retreat</h4>
+                  <p className="text-white"><small>Find out how banks are responding to the changing future of interest...</small></p>
+                  <Button  variant="outline-light rounded-0 my-3">Get More Insight</Button>
+                  </div>
+                  <div class="text-right bg-white bottom-box p-2">
+                  <h5>The Wagner, New York </h5>
+                </div>
+                
+              </div>
+               
+              </div>
+
+              <div class="pt-5">
+              <div className="bg1 ">
+                <div className="pl-4">
+                <div className="bg2 text-white box">
+                  <p className="m-0 text-center mt-1">MAY</p>
+                  <h3 className="m-0 text-center">6</h3>
+                </div>
+                </div>
+                  <div className="pt-5 pl-3 pr-3 pb-3">
+                  <h4 className="text-white pt-3">Research Exchange</h4>
+                  <p className="text-white"><small>Find the best online resources to help with your investments...</small></p>
+                  <Button  variant="outline-light rounded-0 my-3">Get More Insight</Button>
+                  </div>
+                  <div class="text-right bg-white bottom-box p-2">
+                    <h5>London, England</h5>
+                  </div>
+                
+              </div>
+               
+              </div>
+
+</OwlCarousel>
+
+
+
+{/* 
          <div className="row">
             <div className="col">
               <div class="pt-5">
@@ -258,10 +430,9 @@ class App extends Component {
 
        
 
-            </div>
-       </div>
-        
-         </div>
+            </div> */}
+
+
        </Container>
     
 
